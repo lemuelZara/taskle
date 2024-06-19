@@ -1,0 +1,16 @@
+:root {
+    --font-12: 12px;
+    --font-14: 14px;
+    --font-16: 16px;
+  
+    --height-140: 140%;
+  
+    --font-bold: 600;
+    --font-regular: 400;
+
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

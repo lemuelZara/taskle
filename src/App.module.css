@@ -1,0 +1,7 @@
+.main input:checked ~ label {
+    text-decoration: line-through;
+}
+
+.main label {
+    font-weight: bold;
+}
