@@ -1,6 +1,7 @@
 import { ChangeEvent, MouseEvent, useState } from 'react';
 
 import styles from './App.module.css';
+import { Header } from './Header';
 
 type Todo = {
   id: number;
@@ -56,46 +57,45 @@ function App() {
   }
 
   return (
-    <main className={styles.main}>
-      <header>
-        Logo
-      </header>
-
-      <div>
-        <input type="text" placeholder="Adicione uma nova tarefa" onChange={handleChangeTodo} value={newTodo.name} />
-        <button onClick={handleAddTodo} disabled={isNewTodoEmpty}>Criar</button>
-      </div>
-
-      <div>
+    <>
+      <Header />
+      <main className={styles.main}>
         <div>
-          <p>Tarefas criadas - <span>{todos.length}</span></p>
-          {renderCompletedTextTodos()}
+          <input type="text" placeholder="Adicione uma nova tarefa" onChange={handleChangeTodo} value={newTodo.name} />
+          <button onClick={handleAddTodo} disabled={isNewTodoEmpty}>Criar</button>
         </div>
-      </div>
 
-      <section>
-        {todos.length === 0 && (
-          <p>Seção vazia.</p>
-        )}
-        {todos.map(t => (
-          <div key={t.id}>
-            <div>
-              <input
-                type="checkbox"
-                name={t.name}
-                id={`todo-${t.id}`}
-                value={t.name}
-                checked={t.isCompleted}
-                onChange={(event) => handleCompletedTodo(event, t.id)}
-              />
-              <label htmlFor={`todo-checkbox-${t.id}`}>{t.name}</label>
-            </div>
-
-            <button onClick={(event) => handleDeleteTodo(event, t.id)}>Deletar</button>
+        <div>
+          <div>
+            <p>Tarefas criadas - <span>{todos.length}</span></p>
+            {renderCompletedTextTodos()}
           </div>
-        ))}
-      </section>
-    </main>
+        </div>
+
+        <section>
+          {todos.length === 0 && (
+            <p>Seção vazia.</p>
+          )}
+          {todos.map(t => (
+            <div key={t.id}>
+              <div>
+                <input
+                  type="checkbox"
+                  name={t.name}
+                  id={`todo-${t.id}`}
+                  value={t.name}
+                  checked={t.isCompleted}
+                  onChange={(event) => handleCompletedTodo(event, t.id)}
+                />
+                <label htmlFor={`todo-checkbox-${t.id}`}>{t.name}</label>
+              </div>
+
+              <button onClick={(event) => handleDeleteTodo(event, t.id)}>Deletar</button>
+            </div>
+          ))}
+        </section>
+      </main>
+    </>
   )
 }
 
