@@ -4,6 +4,7 @@
 * {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
 }
 
@@ -13,4 +14,17 @@ html {
 
 body {
     background: #1E1E1E;
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+label,
+input,
+button {
+    margin: 0;
+    border: 0;
+    padding: 0;
 }
