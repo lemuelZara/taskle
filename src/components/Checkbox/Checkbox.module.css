@@ -1,0 +1,86 @@
+.checkboxWrapper {
+  width: 100%;
+}
+
+.checkboxWrapper .checkboxInput {
+  display: none;
+}
+
+.checkboxWrapper .checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  cursor: pointer;
+}
+
+.checkboxWrapper .checkboxLabel span:first-child {
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.checkboxWrapper .checkboxLabel:hover span:first-child {
+  border: 2px solid var(--blue-dark);
+  background: rgba(30, 111, 159, 0.1);
+}
+
+.checkboxWrapper .checkboxLabel span:first-child::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--purple);
+  border-radius: 50%;
+  transform: scale(0);
+  display: block;
+  opacity: 1;
+}
+
+.checkboxWrapper .checkboxLabel span:first-child svg {
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 4.5px;
+  fill: none;
+  stroke: var(--gray-100);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: 16px;
+  transition: all 0.3s ease;
+}
+
+.checkboxWrapper .checkboxLabel span:last-child {
+  flex: 1;
+  text-decoration: line-through transparent;
+  line-height: var(--height-140);
+}
+
+.checkboxWrapper .checkboxInput:checked+.checkboxLabel span:first-child {
+  background: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
+.checkboxWrapper .checkboxInput:checked+.checkboxLabel span:first-child svg {
+  stroke-dashoffset: 0;
+}
+
+.checkboxWrapper .checkboxInput:checked+.checkboxLabel span:first-child::before {
+  transform: scale(2.2);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.checkboxInput:checked + .checkboxLabel span:last-child {
+  color: var(--gray-300);
+  text-decoration: line-through;
+  transition: all 0.5s ease;
+}
+
+.checkboxInput:not(:checked) + .checkboxLabel span:last-child {
+  text-decoration: line-through transparent;
+  transition: all 0.5s ease;
+}

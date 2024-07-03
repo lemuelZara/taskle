@@ -1,0 +1,33 @@
+.article {
+  padding: 1.8rem;
+  background: var(--gray-500);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: var(--font-14);
+  color: var(--gray-100);
+  border: 2px solid var(--gray-400);
+}
+
+.article:has(input[type="checkbox"]:checked) {
+  border: 2px solid var(--gray-500);
+  transition: all 0.3s ease;
+}
+
+.article button {
+  padding: 0.8rem;
+  background: transparent;
+  border: 0;
+  color: var(--gray-300);
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 0;
+}
+
+.article button:hover {
+  color: var(--danger);
+  background: var(--gray-400);
+}

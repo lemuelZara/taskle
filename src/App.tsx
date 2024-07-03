@@ -1,8 +1,11 @@
 import { ChangeEvent, MouseEvent, useState } from 'react';
+import { PlusCircle } from '@phosphor-icons/react';
+
+import { Header } from './components/Header';
+import { EmptySection } from './components/EmptySection';
+import { Todo } from './components/Todo';
 
 import styles from './App.module.css';
-import { Header } from './Header';
-import { PlusCircle } from '@phosphor-icons/react';
 
 type Todo = {
   id: number;
@@ -56,7 +59,7 @@ function App() {
   const completedTodos = todos.filter(t => t.isCompleted).length;
 
   function renderCreatedTodos() {
-    return <p>Created tasks <span>{todos.length}</span></p>
+    return <p>Tasks created <span>{todos.length}</span></p>
   }
 
   function renderCompletedTodos() {
@@ -70,7 +73,6 @@ function App() {
   return (
     <>
       <Header />
-
 
       <main className={styles.main}>
         <form className={styles.todoForm}>
@@ -106,26 +108,18 @@ function App() {
           </div>
         </header>
 
-        <section>
+        <section className={styles.section}>
           {todos.length === 0 && (
-            <p>Seção vazia.</p>
+            <EmptySection />
           )}
           {todos.map(t => (
-            <div key={t.id}>
-              <div>
-                <input
-                  type="checkbox"
-                  name={t.name}
-                  id={`todo-${t.id}`}
-                  value={t.name}
-                  checked={t.isCompleted}
-                  onChange={(event) => handleCompletedTodo(event, t.id)}
-                />
-                <label htmlFor={`todo-checkbox-${t.id}`}>{t.name}</label>
-              </div>
-
-              <button onClick={(event) => handleDeleteTodo(event, t.id)}>Deletar</button>
-            </div>
+            <Todo
+              id={t.id}
+              name={t.name}
+              isCompleted={t.isCompleted!}
+              onComplete={event => handleCompletedTodo(event, t.id)}
+              onDelete={event => handleDeleteTodo(event, t.id)}
+            />
           ))}
         </section>
       </main>

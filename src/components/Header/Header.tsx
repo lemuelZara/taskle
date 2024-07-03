@@ -1,6 +1,5 @@
 import styles from './Header.module.css';
-
-import taskleLogo from './assets/taskle-logo.svg';
+import taskleLogo from '../../assets/TaskleLogo.svg';
 
 export function Header() {
   return (
